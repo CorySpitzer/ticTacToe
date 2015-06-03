@@ -67,10 +67,11 @@ var Board = function() {
   };
   //diagonal loop1:
   var spaces = [];
-  for (var x=0, y=2; x<3; x++, y--) {
+  for (var x=2, y=0; y<3; x--, y++) {
       spaces.push(new Space([x,y], ' '));
   };
   this.winningCombos.push(new WinningCombo(spaces[0], spaces[1], spaces[2]));
+
   //diagonal loop2:
   var spaces = [];
   for (var i=0; i<3; i++) {

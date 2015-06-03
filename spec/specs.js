@@ -40,6 +40,18 @@ describe('Board', function() {
     var space6 = new Space([2,2], ' ');
     var sixthCombo = new WinningCombo(space4, space5, space6);
     expect(newBoard.winningCombos[5]).to.eql(sixthCombo);
+
+    var space7 = new Space([0,0], ' ');
+    var space8 = new Space([1,1], ' ');
+    var space9 = new Space([2,2], ' ');
+    var eighthCombo = new WinningCombo(space7, space8, space9);
+    expect(newBoard.winningCombos[7]).to.eql(eighthCombo);
+
+    var space10 = new Space([2,0], ' ');
+    var space11 = new Space([1,1], ' ');
+    var space12 = new Space([0,2], ' ');
+    var seventhCombo = new WinningCombo(space10, space11, space12);
+    expect(newBoard.winningCombos[6]).to.eql(seventhCombo);
   });
 });
 
