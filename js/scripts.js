@@ -1,3 +1,12 @@
+// Next step is to loop through the winning combo array
+// (which is board.winningCombos) and to check if each combo is full (using the
+// winningCombo.full function.).
+// If it is full, then check if it has a winner (using the
+// winningCombo.comboWinner function) (By the way, winningCombo.comboWinner
+// returns "x" or "o" and not the player name). <3
+
+
+
 var Player = function(userName, mark) {
   this.userName = userName;
   this.mark = mark;
@@ -47,6 +56,7 @@ var Board = function() {
                   [new Space([1,0], ' '), new Space([1,1], ' '), new Space([1,2], ' ')],
                   [new Space([2,0], ' '), new Space([2,1], ' '), new Space([2,2], ' ')] ]
   this.winningCombos = [];
+
   //horizontal loop, relative to above:
   for (var y=0; y<3; y++) {
     //x loop:
@@ -56,6 +66,7 @@ var Board = function() {
     }
     this.winningCombos.push(new WinningCombo(spaces[0], spaces[1], spaces[2]))
   };
+
   //vertical loop, relative to above:
   for (var x=0; x<3; x++) {
     //y loop:
@@ -65,6 +76,7 @@ var Board = function() {
     };
     this.winningCombos.push(new WinningCombo(spaces[0], spaces[1], spaces[2]));
   };
+
   //diagonal loop1:
   var spaces = [];
   for (var x=2, y=0; y<3; x--, y++) {
