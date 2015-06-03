@@ -2,7 +2,16 @@ describe('Player', function() {
   it("initializes a player", function() {
     var player1 = new Player("Clare", "x");
     expect(player1.userName).to.equal("Clare");
-    expect(player1.piece).to.equal("x");
+    expect(player1.mark).to.equal("x");
+    expect(player1.game).to.equal('no game')
+  });
+
+  it("marks a space", function() {
+    var clare1 = new Player("Clare", "x");
+    var cory2 = new Player("Cory", "o");
+    var newGame = new Game(clare1, cory2);
+    clare1.placeMark(1,2);
+    expect(newGame.board.spaces[1][2].contains).to.equal('x');
   });
 });
 
@@ -18,7 +27,7 @@ describe('Board', function() {
   it("initalizes a board", function() {
     var newBoard = new Board();
     var topLeft = new Space([0,2], ' ');
-    expect(newBoard.spaces[0][0]).to.eql(topLeft);
+    expect(newBoard.spaces[0][2]).to.eql(topLeft);
   });
 });
 
@@ -31,5 +40,6 @@ describe('Game', function() {
     expect(newGame.player2).to.equal(cory);
     var myBoard = new Board()
     expect(newGame.board).to.eql(myBoard);
+    expect(clare.game).to.equal(newGame);
   });
 });
