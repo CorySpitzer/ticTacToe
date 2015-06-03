@@ -56,14 +56,27 @@ var Board = function() {
     }
     this.winningCombos.push(new WinningCombo(spaces[0], spaces[1], spaces[2]))
   };
+  //vertical loop, relative to above:
   for (var x=0; x<3; x++) {
     //y loop:
-    var spaces = []
+    var spaces = [];
     for (var y=0; y<3; y++) {
-      spaces.push(new Space([x,y], ' '))
-    }
-    this.winningCombos.push(new WinningCombo(spaces[0], spaces[1], spaces[2]))
+      spaces.push(new Space([x,y], ' '));
+    };
+    this.winningCombos.push(new WinningCombo(spaces[0], spaces[1], spaces[2]));
   };
+  //diagonal loop1:
+  var spaces = [];
+  for (var x=0, y=2; x<3; x++, y--) {
+      spaces.push(new Space([x,y], ' '));
+  };
+  this.winningCombos.push(new WinningCombo(spaces[0], spaces[1], spaces[2]));
+  //diagonal loop2:
+  var spaces = [];
+  for (var i=0; i<3; i++) {
+    spaces.push(new Space([i,i], ' '));
+  };
+  this.winningCombos.push(new WinningCombo(spaces[0], spaces[1], spaces[2]));
 };
 
 var Game = function(player1, player2) {
