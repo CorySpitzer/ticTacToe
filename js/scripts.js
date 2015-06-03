@@ -29,18 +29,18 @@ WinningCombo.prototype.full = function() {
   } else {
     return true;
   };
-  // debugger;
-  // var marks = this.spaces.join('');
-  // if (marks[0].search(' ') >= 0) {
-  //   return false;
-  // } else if (marks[1].contains.search(' ') >= 0) {
-  //   return false;
-  // } else if (marks[2].contains.search(' ') >= 0) {
-  //   return false;
-  // } else {
-  //   return true;
-  // }
 };
+
+WinningCombo.prototype.comboWinner = function() {
+
+  if ((this.marks[0] === this.marks[1]) && this.marks[2] === this.marks[1]) {
+    return this.marks[0];
+  } else {
+    return "There is no winner.";
+  };
+};
+
+
 
 var Board = function() {
   this.spaces = [ [new Space([0,0], ' '), new Space([0,1], ' '), new Space([0,2], ' ')],
@@ -57,19 +57,6 @@ var Game = function(player1, player2) {
   this.winner = 'none';
 };
 
-Game.prototype.gameOverCheck = function() {
-  this.winner = "person";
-  var blah = "";
-  this.board.spaces.forEach(function(column) {
-    if (column[0].contains === 'x') {
-      blah = "x";
-    } else {
-      blah = "y";
-    };
-  });
-  this.winner = blah;
-};
-
-// &&
-//      column[1].contains === 'x') &&
-//      column[2].contains === 'x')
+// Game.prototype.gameOverCheck = function() {
+//
+// };

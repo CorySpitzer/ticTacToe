@@ -80,38 +80,11 @@ describe('WinningCombo', function() {
     expect(winningComboA.full()).to.equal(false);
   });
 
-//   it("checks if winning combo is full", function() {
-//     var spaceA = new Space([0,0], 'x')
-//     var spaceB = new Space([0,1], 'o')
-//     var spaceC = new Space([0,2], 'o')
-//     var winningComboA = new WinningCombo(spaceA, spaceB, spaceC);
-//     expect(winningComboA.full()).to.equal(true);
-//   });
+  it("determines a winner", function() {
+    var spaceA = new Space([0,0], 'x')
+    var spaceB = new Space([0,1], 'x')
+    var spaceC = new Space([0,2], 'x')
+    var winningComboA = new WinningCombo(spaceA, spaceB, spaceC);
+    expect(winningComboA.comboWinner()).to.equal('x');
+  });
 });
-
-  // it("determines a winner", function() {
-  //   var clare = new Player("Clare", "x");
-  //   var cory = new Player("Cory", "o");
-  //   var newGame = new Game(clare, cory);
-  //   cory.placeMark(1,1);
-  //   clare.placeMark(2,2);
-  //   cory.placeMark(0,2);
-  //   clare.placeMark(1,2);
-  //   cory.placeMark(2,0);
-  //   expect(newGame.winner()).to.equal(cory);
-  // });
-
-  // it("determines if a game is over because a player won", function() {
-  //   var clare = new Player("Clare", "x");
-  //   var cory = new Player("Cory", "o");
-  //   var newGame = new Game(clare, cory);
-  //   cory.placeMark(0,0);
-  //   clare.placeMark(1,1);
-  //   cory.placeMark(0,1);
-  //   // expect(newGame.gameOverCheck()).to.equal(false);
-  //   clare.placeMark(1,2);
-  //   cory.placeMark(0,2);
-  //   // expect(newGame.gameOverCheck()).to.equal(true);
-  //   newGame.gameOverCheck()
-  //   expect(newGame.winner).to.equal('x');
-  // });
