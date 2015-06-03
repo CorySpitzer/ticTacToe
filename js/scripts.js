@@ -46,6 +46,16 @@ var Board = function() {
   this.spaces = [ [new Space([0,0], ' '), new Space([0,1], ' '), new Space([0,2], ' ')],
                   [new Space([1,0], ' '), new Space([1,1], ' '), new Space([1,2], ' ')],
                   [new Space([2,0], ' '), new Space([2,1], ' '), new Space([2,2], ' ')] ]
+  this.winningCombos = [];
+  //horizontal loop, relative to above:
+  for (var y=0; y<3; y++) {
+    //x loop:
+    var spaces = []
+    for (var x=0; x<3; x++) {
+      spaces.push(new Space([x,y], ' '))
+    }
+    this.winningCombos.push(new WinningCombo(spaces[0], spaces[1], spaces[2]))
+  };
 };
 
 var Game = function(player1, player2) {

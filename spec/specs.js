@@ -28,6 +28,12 @@ describe('Board', function() {
     var newBoard = new Board();
     var topLeft = new Space([0,2], ' ');
     expect(newBoard.spaces[0][2]).to.eql(topLeft);
+
+    var space1 = new Space([0,0], ' ');
+    var space2 = new Space([1,0], ' ');
+    var space3 = new Space([2,0], ' ');
+    var firstCombo = new WinningCombo(space1, space2, space3);
+    expect(newBoard.winningCombos[0]).to.eql(firstCombo);
   });
 });
 
@@ -80,11 +86,19 @@ describe('WinningCombo', function() {
     expect(winningComboA.full()).to.equal(false);
   });
 
-  it("determines a winner", function() {
+  it("returns the winner if they exist", function() {
     var spaceA = new Space([0,0], 'x')
     var spaceB = new Space([0,1], 'x')
     var spaceC = new Space([0,2], 'x')
     var winningComboA = new WinningCombo(spaceA, spaceB, spaceC);
     expect(winningComboA.comboWinner()).to.equal('x');
+  });
+
+  it("lets us know if no one has won", function() {
+    var spaceA = new Space([0,0], 'x')
+    var spaceB = new Space([0,1], 'o')
+    var spaceC = new Space([0,2], 'x')
+    var winningComboA = new WinningCombo(spaceA, spaceB, spaceC);
+    expect(winningComboA.comboWinner()).to.equal("There is no winner.");
   });
 });
