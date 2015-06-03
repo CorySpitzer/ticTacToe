@@ -13,3 +13,9 @@ var Board = function() {
                   [new Space([0,1], ' '), new Space([1,1], ' '), new Space([2,1], ' ')],
                   [new Space([0,0], ' '), new Space([1,0], ' '), new Space([2,0], ' ')]]
 };
+
+var Game = function(player1, player2) {
+  this.player1 = player1;
+  this.player2 = player2;
+  this.board = new Board();
+};
