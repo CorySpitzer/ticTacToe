@@ -45,7 +45,7 @@ describe('Game', function() {
   });
 });
 
-describe('winningCombo', function() {
+describe('WinningCombo', function() {
   it('initializes a winning combo', function() {
     var WinningComboA = new WinningCombo(new Space([0,0], ' '),
                                           new Space([0,1], ' '),
@@ -55,6 +55,38 @@ describe('winningCombo', function() {
                                           new Space([0,1], ' '),
                                           new Space([0,2], ' ')])
   });
+
+  it("checks if winning combo is not full", function() {
+    var spaceA = new Space([0,0], ' ')
+    var spaceB = new Space([0,1], ' ')
+    var spaceC = new Space([0,2], ' ')
+    var winningComboA = new WinningCombo(spaceA, spaceB, spaceC);
+    expect(winningComboA.full()).to.equal(false);
+  });
+
+  it("checks if winning combo is full", function() {
+    var spaceA = new Space([0,0], 'x')
+    var spaceB = new Space([0,1], 'x')
+    var spaceC = new Space([0,2], 'o')
+    var winningComboA = new WinningCombo(spaceA, spaceB, spaceC);
+    expect(winningComboA.full()).to.equal(true);
+  });
+
+  it("handles a partially filled winning combo", function() {
+    var spaceA = new Space([0,0], 'x')
+    var spaceB = new Space([0,1], ' ')
+    var spaceC = new Space([0,2], 'o')
+    var winningComboA = new WinningCombo(spaceA, spaceB, spaceC);
+    expect(winningComboA.full()).to.equal(false);
+  });
+
+//   it("checks if winning combo is full", function() {
+//     var spaceA = new Space([0,0], 'x')
+//     var spaceB = new Space([0,1], 'o')
+//     var spaceC = new Space([0,2], 'o')
+//     var winningComboA = new WinningCombo(spaceA, spaceB, spaceC);
+//     expect(winningComboA.full()).to.equal(true);
+//   });
 });
 
   // it("determines a winner", function() {

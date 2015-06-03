@@ -15,6 +15,31 @@ var Space = function(coordinates, contains) {
 
 var WinningCombo = function(space1, space2, space3) {
   this.spaces = [space1, space2, space3];
+  var marks = ''
+  this.spaces.forEach(function(space) {
+    marks = marks + space.contains;
+  });
+  this.marks = marks;
+};
+
+WinningCombo.prototype.full = function() {
+  // if at least one empty, then false, otherwise true
+  if (this.marks.search(' ') >= 0) {
+    return false;
+  } else {
+    return true;
+  };
+  // debugger;
+  // var marks = this.spaces.join('');
+  // if (marks[0].search(' ') >= 0) {
+  //   return false;
+  // } else if (marks[1].contains.search(' ') >= 0) {
+  //   return false;
+  // } else if (marks[2].contains.search(' ') >= 0) {
+  //   return false;
+  // } else {
+  //   return true;
+  // }
 };
 
 var Board = function() {
