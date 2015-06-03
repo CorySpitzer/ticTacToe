@@ -34,6 +34,12 @@ describe('Board', function() {
     var space3 = new Space([2,0], ' ');
     var firstCombo = new WinningCombo(space1, space2, space3);
     expect(newBoard.winningCombos[0]).to.eql(firstCombo);
+
+    var space4 = new Space([2,0], ' ');
+    var space5 = new Space([2,1], ' ');
+    var space6 = new Space([2,2], ' ');
+    var sixthCombo = new WinningCombo(space4, space5, space6);
+    expect(newBoard.winningCombos[5]).to.eql(sixthCombo);
   });
 });
 

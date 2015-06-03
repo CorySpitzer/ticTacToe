@@ -56,6 +56,14 @@ var Board = function() {
     }
     this.winningCombos.push(new WinningCombo(spaces[0], spaces[1], spaces[2]))
   };
+  for (var x=0; x<3; x++) {
+    //y loop:
+    var spaces = []
+    for (var y=0; y<3; y++) {
+      spaces.push(new Space([x,y], ' '))
+    }
+    this.winningCombos.push(new WinningCombo(spaces[0], spaces[1], spaces[2]))
+  };
 };
 
 var Game = function(player1, player2) {
